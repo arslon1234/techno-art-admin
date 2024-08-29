@@ -2,7 +2,7 @@
 interface IParams {
     limit: number,
     page: number,
-    search: string
+    search?: string
 }
 // ========= AUTH ========== 
 
@@ -16,9 +16,6 @@ export interface Auth {
 }
 
 // ==========  CATEGORY =======
-interface CreateData {
-    name: string
-}
 export interface Category {
     get: (params: IParams)=> any,
     // create: (data:CreateData)=> any
