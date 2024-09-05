@@ -16,7 +16,7 @@ const Index = () => {
 
   return (
     <Layout>
-      <Sider trigger={null} collapsible collapsed={collapsed} style={{height: "100vh", width: '400px'}}>
+      <Sider trigger={null} collapsible collapsed={collapsed} style={{ width: '400px', minHeight: "100vh"}}>
         {
             routes.map((item,index)=>{
                 return <div key={index}>

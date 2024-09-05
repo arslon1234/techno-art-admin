@@ -1,2 +1,3 @@
 import Table from './global-table'
-export {Table}
+import Search from './search'
+export {Table,Search}
