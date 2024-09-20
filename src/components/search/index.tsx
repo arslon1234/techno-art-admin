@@ -32,7 +32,7 @@ const Index = (props: SearchProps) => {
     navigate(`?${searchParams.toString()}`);
   };
 
-  return <Input placeholder="Search" value={params.search} onChange={handleChange} />;
+  return <Input placeholder="Search" value={params.search} onChange={handleChange} className="max-w-80"/>;
 };
 
 export default Index;

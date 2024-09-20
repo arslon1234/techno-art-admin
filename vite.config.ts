@@ -12,6 +12,7 @@ export default defineConfig({
       { find: "@types", replacement: "/src/types" },
       { find: "@token-service", replacement: "/src/utils/token-service" },
       { find: "@components", replacement: "/src/components" },
+      { find: "@modals", replacement: "/src/components/modals" },
     ],
   },
 })

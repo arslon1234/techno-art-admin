@@ -38,6 +38,7 @@ const Index = () => {
   return (
     <section className="w-full h-screen flex items-center justify-center">
       <div className="w-[600px] p-3 flex flex-col items-center justify-center">
+        
         <Form
           name="basic"
           labelCol={{ span: 8 }}

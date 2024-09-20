@@ -16,8 +16,12 @@ export interface Auth {
 }
 
 // ==========  CATEGORY =======
+
+interface CreateData {
+    name: string 
+}
 export interface Category {
     get: (params: IParams)=> any,
-    // create: (data:CreateData)=> any
+    create: (data:CreateData)=> any
 }
 

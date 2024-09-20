@@ -8,6 +8,7 @@ const category:Category = {
           params: { limit, page },
         });
       },
+      create:(data)=> https.post("/category/create",data)
     // update: ()=> https.put(),
     // delete: ()=> https.delete()
 }

@@ -11,6 +11,7 @@
       "@types": ["./src/types"],
       "@token-service": ["./src/utils/token-service"],
       "@components": ["./src/components"],
+      "@modals": ["./src/components/modals"],
     },
     /* Bundler mode */
     "moduleResolution": "bundler",

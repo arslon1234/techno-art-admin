@@ -1,17 +1,24 @@
 import { useLocation, useNavigate} from "react-router-dom"; // To manage query params
 import { useEffect, useState } from "react";
+import { Button } from "antd";
 import { category } from "@service";
 import { Table,Search } from "@components";
-
+import { Category } from "@modals";
 const Index = () => {
   const [data, setData] = useState([]);
+  const [open,setOpen] = useState(false)
+  const [category,setCategory] = useState({})
   const [total, setTotal] = useState(0); // To store the total number of items
+  const categories = [
+    {id:1, name: "Kiyimlar"},
+    {id:2, name: "Kitoblar"}
+  ]
   const location = useLocation()
   const navigate = useNavigate()
   // Initialize pagination state from query params
   const val = new URLSearchParams(location.search)
   const [params, setParams] = useState({
-    search: val.get('search') ||'',
+    search: val.get('search') || '',
     page: 1,
     limit: 10,
   });
@@ -61,15 +68,26 @@ const Index = () => {
        searchParams.set("limit", `${pageSize}`)
        navigate(`?${searchParams}`)
   };
-
   const columns: any = [
     { title: 'Name', dataIndex: 'name', key: 'name' },
   ];
-  
+  const openModal =()=>{
+    setCategory({name: "nimadir",parentCategory: "Kiyimlar"})
+    setOpen(true)
+  }
+  const handleCancel =()=>{
+    setCategory({})
+    setOpen(false)
+  }
   return (
-    <div>
+    <>
+    <Category open={open} handleCancel={handleCancel} category={category} categories={categories}/>
       <h1>Categories</h1>
+      <div className="flex justify-between my-2">
       <Search params={params} setParams={setParams}/>
+      <Button type="primary" onClick={()=>setOpen(true)}>Add category</Button>
+      <Button type="primary" onClick={openModal}>Edit category</Button>
+      </div>
       <Table
         data={data}
         columns={columns}
@@ -78,11 +96,11 @@ const Index = () => {
           pageSize: params.limit,
           total: total,
           showSizeChanger: true,
-          pageSizeOptions: ['2', '5', '7', '10'],
+          pageSizeOptions: ['2', '5', '7', '10', '12'],
         }}
         onChange={handleTableChange}
       />
-    </div>
+    </>
   );
 };
 
